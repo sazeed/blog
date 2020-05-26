@@ -1,0 +1,10 @@
+<div id="page-content">
+  <h1 class= "text-center mt-4"><%=@user.username %>'s profile</h1>
+  <%= gravatar_for @user, size:200 %>
+
+  <div class= "text-center mt-4">
+  <%= link_to "Edit profile", edit_user_path(@user), class:"btn btn-outline-info" %>
+</div>
+  <h1 class= "text-center mt-4">Listing user articles</h1>
+  <%= render 'articles/article' %> 
+</div>
