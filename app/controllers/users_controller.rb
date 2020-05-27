@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
 
-    before_action :set_user, only: [:show, :edit, :update]
+    before_action :set_user, only: [:show, :edit, :update, :destroy]
     before_action :require_user, only: [:edit, :update]
-    before_action :require_same_user, only: [:edit, :update]
+    before_action :require_same_user, only: [:edit, :update, :destroy]
     def action
     end
     def new 
@@ -21,6 +21,13 @@ class UsersController < ApplicationController
     def edit
       
     end 
+
+    def destroy
+        @user.destroy
+        session[:user_id]= nil
+        redirect_to articles_path
+
+    end
 
     def update
         
