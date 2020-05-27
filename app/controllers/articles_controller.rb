@@ -1,7 +1,5 @@
 
 class ArticlesController < ApplicationController
-
-  #http_basic_authenticate_with name: "bobby", password: "possible", except: [:index, :show]
   
   before_action :set_article, only: [:show, :edit, :update, :destroy]
   before_action :require_user, except: [:show, :index]
@@ -55,4 +53,6 @@ class ArticlesController < ApplicationController
     def require_same_user
       if current_user != @article.user
         redirect_to @article
+      end
+    end
   end
